@@ -1,0 +1,35 @@
+﻿빌드 시작: 2012-05-15 오전 1:24:20
+     1>2 노드의 "F:\USERs\lute\Documents\Visual Studio 2010\Projects\mtanova\mtanova\mtanova.vcxproj" 프로젝트(build 대상)입니다.
+     1>InitializeBuildStatus:
+         "AlwaysCreate"이(가) 지정되었기 때문에 "Debug\mtanova.unsuccessfulbuild"을(를) 만들고 있습니다.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt mta.c
+         mta.c
+     1>f:\users\lute\documents\visual studio 2010\projects\mtanova\mtanova\mta.c(21): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(234) : 'fopen' 선언을 참조하십시오.
+     1>f:\users\lute\documents\visual studio 2010\projects\mtanova\mtanova\mta.c(24): warning C4098: 'main' : 'void' 함수에서 값을 반환하고 있습니다.
+     1>f:\users\lute\documents\visual studio 2010\projects\mtanova\mtanova\mta.c(27): warning C4047: '!=' : 'int'의 간접 참조 수준이 'void *'과(와) 다릅니다.
+     1>f:\users\lute\documents\visual studio 2010\projects\mtanova\mtanova\mta.c(44): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253) : 'fscanf' 선언을 참조하십시오.
+     1>f:\users\lute\documents\visual studio 2010\projects\mtanova\mtanova\mta.c(46): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 10.0\vc\include\stdio.h(253) : 'fscanf' 선언을 참조하십시오.
+     1>f:\users\lute\documents\visual studio 2010\projects\mtanova\mtanova\mta.c(101): warning C4098: 'main' : 'void' 함수에서 값을 반환하고 있습니다.
+       ManifestResourceCompile:
+         모든 출력이 최신 상태입니다.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\USERs\lute\Documents\Visual Studio 2010\Projects\mtanova\Debug\mtanova.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\mtanova.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\USERs\lute\Documents\Visual Studio 2010\Projects\mtanova\Debug\mtanova.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\USERs\lute\Documents\Visual Studio 2010\Projects\mtanova\Debug\mtanova.lib" /MACHINE:X86 Debug\mtanova.exe.embed.manifest.res
+         Debug\mta.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\mtanova.exe.embed.manifest" /manifest Debug\mtanova.exe.intermediate.manifest
+         모든 출력이 최신 상태입니다.
+       LinkEmbedManifest:
+         모든 출력이 최신 상태입니다.
+         mtanova.vcxproj -> F:\USERs\lute\Documents\Visual Studio 2010\Projects\mtanova\Debug\mtanova.exe
+       FinalizeBuildStatus:
+         "Debug\mtanova.unsuccessfulbuild" 파일을 삭제하고 있습니다.
+         "Debug\mtanova.lastbuildstate"에 연결(touching)하고 있습니다.
+     1>"F:\USERs\lute\Documents\Visual Studio 2010\Projects\mtanova\mtanova\mtanova.vcxproj" 프로젝트를 빌드했습니다(build 대상).
+
+빌드했습니다.
+
+경과 시간: 00:00:01.15
