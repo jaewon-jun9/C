@@ -15,7 +15,7 @@ int main(){
         default: c--;
             break;
     }
-    printf("%d",c);
+    printf("%d\n",c);
 int d = 1;
     switch (3){
         case 1: d+=3;
