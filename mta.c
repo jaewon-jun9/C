@@ -1,103 +1,103 @@
-//ºÐ»êºÐ¼® ÇÁ·Î±×·¥//
+//ë¶„ì‚°ë¶„ì„ í”„ë¡œê·¸ëž¨//
 #include "stdio.h"
 #include "string.h"
- // ¹®ÀÚÀÇ ¾Æ½ºÅ° ÄÚµå°ªÀ¸·Î ºñ±³ÇÕ´Ï´Ù.
+ // ë¬¸ìžì˜ ì•„ìŠ¤í‚¤ ì½”ë“œê°’ìœ¼ë¡œ ë¹„êµí•©ë‹ˆë‹¤.
  
 #define MAX 9000
-     int sample[MAX][MAX]; //»ùÇÃÀ» ÀúÀåÇÏ´Â 2Â÷¿ø ¹è¿­
-	 int i=0; //Â÷¿ø¹è¿­ ´Ù·ç±â À§ÇÔ
-	 int j=0; //Â÷¿ø¹è¿­ ´Ù·ç±â À§ÇÔ
-	 int t=0; //Ã³¸®ÀÇ ¼ýÀÚ
-	 int ret;//¿ÍÀÏ Å»Ãâ Á¶°Ç¿ë º¯¼ö
+     int sample[MAX][MAX]; //ìƒ˜í”Œì„ ì €ìž¥í•˜ëŠ” 2ì°¨ì› ë°°ì—´
+	 int i=0; //ì°¨ì›ë°°ì—´ ë‹¤ë£¨ê¸° ìœ„í•¨
+	 int j=0; //ì°¨ì›ë°°ì—´ ë‹¤ë£¨ê¸° ìœ„í•¨
+	 int t=0; //ì²˜ë¦¬ì˜ ìˆ«ìž
+	 int ret;//ì™€ì¼ íƒˆì¶œ ì¡°ê±´ìš© ë³€ìˆ˜
 	 int n=0;
-	 double av[MAX];//Æò±ÕÀ» ÀúÀåÇÏ±â À§ÇÔ ¹è¿­
-	 double SSt[MAX];//SSt °è»ê¿ë ¹è¿­
-	 double SSE[MAX];//SSt °è»ê¿ë ¹è¿­
+	 double av[MAX];//í‰ê· ì„ ì €ìž¥í•˜ê¸° ìœ„í•¨ ë°°ì—´
+	 double SSt[MAX];//SSt ê³„ì‚°ìš© ë°°ì—´
+	 double SSE[MAX];//SSt ê³„ì‚°ìš© ë°°ì—´
 	 double F;
-	 char input[MAX]; // ¹®ÀÚ¿­ ÀúÀå ¹è¿­ ¼±¾ð
+	 char input[MAX]; // ë¬¸ìžì—´ ì €ìž¥ ë°°ì—´ ì„ ì–¸
 	 FILE * fp;
  void main(void)
  {
-	fp=fopen("data.csv", "rt");//µ¥ÀÌÅÍ ÆÄÀÏ ¿ÀÇÂ, µ¥ÀÌÅÍ´Â ÄÄ¸¶·Î ±¸ºÐµÇ¸ç °¢ Ã³¸®´Â ¼¼·Î·Î ¹è¿­
+	fp=fopen("data.csv", "rt");//ë°ì´í„° íŒŒì¼ ì˜¤í”ˆ, ë°ì´í„°ëŠ” ì»´ë§ˆë¡œ êµ¬ë¶„ë˜ë©° ê° ì²˜ë¦¬ëŠ” ì„¸ë¡œë¡œ ë°°ì—´
 	if(fp==NULL){
-	puts("File open failed");//ÆÄÀÏÀÌ ¾øÀ¸¸é Á¾·á
+	puts("File open failed");//íŒŒì¼ì´ ì—†ìœ¼ë©´ ì¢…ë£Œ
 	return -1;
 	}
-fgets(input, sizeof(input), fp); //Ã³¸®ÀÇ ¼ö¸¦ ¾Ë±âÀ§ÇØ Ã¹Â°¿­ ÀÐ±â, ¹®ÀÚ¿­ ÀÔ·ÂÇÔ¼ö gets »ç¿ëÇÏ¿© º¯¼ö¿¡ ÀúÀå
-while(input[i] != NULL) // ±ÛÀÚ ¼ö ¸¸Å­
+fgets(input, sizeof(input), fp); //ì²˜ë¦¬ì˜ ìˆ˜ë¥¼ ì•Œê¸°ìœ„í•´ ì²«ì§¸ì—´ ì½ê¸°, ë¬¸ìžì—´ ìž…ë ¥í•¨ìˆ˜ gets ì‚¬ìš©í•˜ì—¬ ë³€ìˆ˜ì— ì €ìž¥
+while(input[i] != NULL) // ê¸€ìž ìˆ˜ ë§Œí¼
 {
-switch(input[i]) // ±ÛÀÚÀÇ °ª ºñ±³
+switch(input[i]) // ê¸€ìžì˜ ê°’ ë¹„êµ
 {
-case ',' : t++; // ÄÄ¸¶¸é 1Áõ°¡, ÄÄ¸¶ ¼ö +1 ÀÌ Ã³¸®ÀÇ ¼ö, ÄÄ¸¶ ¼ö´Â Ã³¸®ÀÇ ÀÚÀ¯µµ
+case ',' : t++; // ì»´ë§ˆë©´ 1ì¦ê°€, ì»´ë§ˆ ìˆ˜ +1 ì´ ì²˜ë¦¬ì˜ ìˆ˜, ì»´ë§ˆ ìˆ˜ëŠ” ì²˜ë¦¬ì˜ ìžìœ ë„
 break; 
- default : break;//ÄÄ¸¶ ¾øÀ¸¸é ³ëÄ«¿îÆ®
+ default : break;//ì»´ë§ˆ ì—†ìœ¼ë©´ ë…¸ì¹´ìš´íŠ¸
 }
-i++; // iÁõ°¡
+i++; // iì¦ê°€
 }
 i=0;
-printf ("head => %s\n", input);//È®ÀÎ¿ë Ã¹¹øÂ° ¿­ Ãâ·Â
-printf ("Ã³¸®ÀÇ ¼ö => %d°³\n",t+1);//Ã³¸®ÀÇ °¹¼ö È®ÀÎ
-fseek(fp, 0, SEEK_SET);//Ã¹¿­À» ÀÐ¾úÀ¸¹Ç·Î ´Ù½Ã ½ÃÀÛÁ¡À¸·Î µ¹¾Æ°¨
+printf ("head => %s\n", input);//í™•ì¸ìš© ì²«ë²ˆì§¸ ì—´ ì¶œë ¥
+printf ("ì²˜ë¦¬ì˜ ìˆ˜ => %dê°œ\n",t+1);//ì²˜ë¦¬ì˜ ê°¯ìˆ˜ í™•ì¸
+fseek(fp, 0, SEEK_SET);//ì²«ì—´ì„ ì½ì—ˆìœ¼ë¯€ë¡œ ë‹¤ì‹œ ì‹œìž‘ì ìœ¼ë¡œ ëŒì•„ê°
 while(1){
 for(i=0;i<t;++i)
 {
-	fscanf(fp,"%d,",&sample[j][i]);//ÄÄ¸¶¸¦ ±¸ºÐÁ¡À¸·Î µ¥ÀÌÅÍ ÀÔ·Â¹ÞÀ½
+	fscanf(fp,"%d,",&sample[j][i]);//ì»´ë§ˆë¥¼ êµ¬ë¶„ì ìœ¼ë¡œ ë°ì´í„° ìž…ë ¥ë°›ìŒ
 	}
-ret=fscanf(fp, "%d\n",&sample[j][t]);//°¢ ¿­ÀÇ ¸¶Áö¸·Àº ÄÄ¸¶°¡ ¾ø°í \nÀ¸·Î ³¡³²
-if(ret==EOF)//ÆÄÀÏÀÇ ³¡ ÀÌ ³ª¿À¸é ºüÁ®³ª°¡´Â Á¶°Ç
+ret=fscanf(fp, "%d\n",&sample[j][t]);//ê° ì—´ì˜ ë§ˆì§€ë§‰ì€ ì»´ë§ˆê°€ ì—†ê³  \nìœ¼ë¡œ ëë‚¨
+if(ret==EOF)//íŒŒì¼ì˜ ë ì´ ë‚˜ì˜¤ë©´ ë¹ ì ¸ë‚˜ê°€ëŠ” ì¡°ê±´
 	break;
-j++;//³¡ÀÌ ³ª¿ÀÁö ¾ÊÀº °æ¿ì ´ÙÀ½¿­À» ÀÐÀ½
+j++;//ëì´ ë‚˜ì˜¤ì§€ ì•Šì€ ê²½ìš° ë‹¤ìŒì—´ì„ ì½ìŒ
 }
-n=j;//ÃÑ ¿­¼ö¸¦ n¿¡ ÀúÀå
-//ÀÐÀº µ¥ÀÌÅÍ¸¦ Ãâ·ÂÇÏ¿© È®ÀÎ//
+n=j;//ì´ ì—´ìˆ˜ë¥¼ nì— ì €ìž¥
+//ì½ì€ ë°ì´í„°ë¥¼ ì¶œë ¥í•˜ì—¬ í™•ì¸//
 for(j=0;j<n;j++){
 	for(i=0;i<t+1;i++){
 		printf("%d ",sample[j][i]);}
 	printf("\n");
 }
-//°¢°¢ÀÇ Ã³¸®ÀÇ ÇÔ °è»ê//
+//ê°ê°ì˜ ì²˜ë¦¬ì˜ í•¨ ê³„ì‚°//
 for(i=0;i<t+1;i++){
 for(j=0;j<n;j++){
 	sample[n+1][i]+=sample[j][i];
 }
 }
-printf("°¢ Ã³¸®ÀÇ ÇÕ\n");//Ã³¸®ÀÇ ÇÕ È®ÀÎ//
+printf("ê° ì²˜ë¦¬ì˜ í•©\n");//ì²˜ë¦¬ì˜ í•© í™•ì¸//
 for(i=0;i<t+1;i++)
 printf("%d ",sample[n+1][i]);
-//Ã³¸®ÀÇ ÇÕÀ» ¸ðµÎ ´õÇÔ//
+//ì²˜ë¦¬ì˜ í•©ì„ ëª¨ë‘ ë”í•¨//
 for(i=0;i<t+1;i++)
 	sample[n+1][t+2]+=sample[n+1][i];
-printf("\n°¢ Ç¥º»ÀÇ ÃÑÇÕ\n%d\n", sample[n+1][t+2]);//ÃÑÇÕ È®ÀÎ//
-//°¢ Ã³¸®ÀÇ Æò±Õ °è»ê//³ª´°¼ÀÀ» À§ÇØ ´õºí º¯¼ö·Î ÀüÈ¯ÇÏ¿© av¹è¿­¿¡ ³Ö¾îÁØ ÈÄ ³ª´°¼À//
+printf("\nê° í‘œë³¸ì˜ ì´í•©\n%d\n", sample[n+1][t+2]);//ì´í•© í™•ì¸//
+//ê° ì²˜ë¦¬ì˜ í‰ê·  ê³„ì‚°//ë‚˜ëˆ—ì…ˆì„ ìœ„í•´ ë”ë¸” ë³€ìˆ˜ë¡œ ì „í™˜í•˜ì—¬ avë°°ì—´ì— ë„£ì–´ì¤€ í›„ ë‚˜ëˆ—ì…ˆ//
 for(i=0;i<t+1;i++){
 	av[i]=sample[n+1][i];
 	av[i]=av[i]/n;
 }
-printf("°¢ Ã³¸®ÀÇ Æò±Õ\n");
+printf("ê° ì²˜ë¦¬ì˜ í‰ê· \n");
 for(i=0;i<t+1;i++)
 printf("%f ",av[i]);
-printf("ÃÑÆò±Õ\n");
-av[t+2]=sample[n+1][t+2];//ÃÑÆò±Õ °è»êÀ» À§ÇØ Æò±Õ°è»ê¿ë º¯¼öÀÇ ³¡ÀÚ¸®¿¡ ÃÑÇÕÀ» ³Ö¾îÁÜ
-av[t+2]=av[t+2]/n/(t+1);//ÃÑÇÕÀ» ÃÑ Ç¥º»¼ö·Î ³ª´²ÁÜ
+printf("ì´í‰ê· \n");
+av[t+2]=sample[n+1][t+2];//ì´í‰ê·  ê³„ì‚°ì„ ìœ„í•´ í‰ê· ê³„ì‚°ìš© ë³€ìˆ˜ì˜ ëìžë¦¬ì— ì´í•©ì„ ë„£ì–´ì¤Œ
+av[t+2]=av[t+2]/n/(t+1);//ì´í•©ì„ ì´ í‘œë³¸ìˆ˜ë¡œ ë‚˜ëˆ ì¤Œ
 printf("%f\n",av[t+2]);
 for(i=0;i<t+1;i++){
-	SSt[i]=(av[i]-av[t+2])*(av[i]-av[t+2]);//Ã³¸®Á¦°ö °è»ê
+	SSt[i]=(av[i]-av[t+2])*(av[i]-av[t+2]);//ì²˜ë¦¬ì œê³± ê³„ì‚°
 }
 for(i=0;i<t+1;i++){
-	SSt[t+2]+=SSt[i];//Ã³¸®Á¦°ö ÇÕ
+	SSt[t+2]+=SSt[i];//ì²˜ë¦¬ì œê³± í•©
 }
 for(j=0;j<n;j++){
 	for(i=0;i<t+1;i++){
-		SSE[j]+=(sample[j][i]-av[i])*(sample[j][i]-av[i]);//ÀÜÂ÷Á¦°ö °è»ê
+		SSE[j]+=(sample[j][i]-av[i])*(sample[j][i]-av[i]);//ìž”ì°¨ì œê³± ê³„ì‚°
 	}
-	SSE[n+1]+=SSE[j];//ÀÜÂ÷Á¦°öÇÕ
+	SSE[n+1]+=SSE[j];//ìž”ì°¨ì œê³±í•©
 }
-printf("SSt %f ÀÚÀ¯µµ %d \n",SSt[t+2]*n,t);
-printf("SSE %f ÀÚÀ¯µµ %d \n",SSE[n+1],(t+1)*(n-1));
-printf("SST %f ÀÚÀ¯µµ %d \n",SSE[n+1]+SSt[t+2]*n,(t+1)*(n-1)+t);
+printf("SSt %f ìžìœ ë„ %d \n",SSt[t+2]*n,t);
+printf("SSE %f ìžìœ ë„ %d \n",SSE[n+1],(t+1)*(n-1));
+printf("SST %f ìžìœ ë„ %d \n",SSE[n+1]+SSt[t+2]*n,(t+1)*(n-1)+t);
 fclose(fp);
-F=SSt[t+2]*n/t/SSE[n+1]*(t+1)*(n-1);//fºñ °è»ê
-printf("Fºñ %f\n", F);//¸ñÀû ´Þ¼º~~ ½Ì³­´Ù~~~~
-return 0;//³¡~~~~~
+F=SSt[t+2]*n/t/SSE[n+1]*(t+1)*(n-1);//fë¹„ ê³„ì‚°
+printf("Fë¹„ %f\n", F);//ëª©ì  ë‹¬ì„±~~ ì‹±ë‚œë‹¤~~~~
+return 0;//ë~~~~~
  }
  

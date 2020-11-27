@@ -1,37 +1,37 @@
-//3°³ÀÇ Ã³¸®¸¦ °è»êÇÏ´Â ºĞ»êºĞ¼® ÇÁ·Î±×·¥
+//3ê°œì˜ ì²˜ë¦¬ë¥¼ ê³„ì‚°í•˜ëŠ” ë¶„ì‚°ë¶„ì„ í”„ë¡œê·¸ë¨
 #include <stdio.h>
 
 int main(void)
 {
-	FILE*src=fopen("src.txt","rt");//ÀĞ¾îµéÀÏ µ¥ÀÌÅÍ ÆÄÀÏ
-	FILE*des=fopen("f.txt","wt");//°è»ê°á°ú ¹× fºñ ÀúÀå ÆÄÀÏ
-	int ret;//while¹® ¿¡·¯Ã¼Å©
-	int A,B,C;//µ¥ÀÌÅÍ ÀÔ·Â¿ë ÀÓ½Ã º¯¼ö
-	int a[65536],b[65536],c[65536];//°¢ Ã³¸®º° µ¥ÀÌÅÍ ÀúÀå¼Ò
-	int i=0;//while, for ¹İº¹¹®¿ë º¯¼ö
-	int n=0;//µ¥ÀÌÅÍ ¿­ ¼ö
-	int df=0;//ÀÚÀ¯µµ
-	double abar=0;//Ã³¸®1 Æò±Õ
-	double bbar=0;//Ã³¸®2 Æò±Õ
-	double cbar=0;//Ã³¸®3 Æò±Õ
-	double total=0;//ÃÑÆò±Õ
-	double sst=0;//ÃÑÁ¦°öÇÕ
+	FILE*src=fopen("src.txt","rt");//ì½ì–´ë“¤ì¼ ë°ì´í„° íŒŒì¼
+	FILE*des=fopen("f.txt","wt");//ê³„ì‚°ê²°ê³¼ ë° fë¹„ ì €ì¥ íŒŒì¼
+	int ret;//whileë¬¸ ì—ëŸ¬ì²´í¬
+	int A,B,C;//ë°ì´í„° ì…ë ¥ìš© ì„ì‹œ ë³€ìˆ˜
+	int a[65536],b[65536],c[65536];//ê° ì²˜ë¦¬ë³„ ë°ì´í„° ì €ì¥ì†Œ
+	int i=0;//while, for ë°˜ë³µë¬¸ìš© ë³€ìˆ˜
+	int n=0;//ë°ì´í„° ì—´ ìˆ˜
+	int df=0;//ììœ ë„
+	double abar=0;//ì²˜ë¦¬1 í‰ê· 
+	double bbar=0;//ì²˜ë¦¬2 í‰ê· 
+	double cbar=0;//ì²˜ë¦¬3 í‰ê· 
+	double total=0;//ì´í‰ê· 
+	double sst=0;//ì´ì œê³±í•©
 	double ssta=0;
 	double sstb=0;
 	double sstc=0;
-	double tss=0;//Ã³¸®Á¦°öÇÕ
-	double sse=0;//ÀÜÂ÷Á¦°öÇÕ
+	double tss=0;//ì²˜ë¦¬ì œê³±í•©
+	double sse=0;//ì”ì°¨ì œê³±í•©
 	double ssea=0;
 	double sseb=0;
 	double ssec=0;
-	double f=0;//fºñ °á°úÄ¡
+	double f=0;//fë¹„ ê²°ê³¼ì¹˜
 	if(src==NULL){
-		puts("ÆÄÀÏ¿ÀÇÂ ½ÇÆĞ!");
+		puts("íŒŒì¼ì˜¤í”ˆ ì‹¤íŒ¨!");
 		return -1;
 	}
-	while(1)//ret°¡ EOF°ªÀ» °¡Áú ¶§±îÁö µ¥ÀÌÅÍ ÀĞ±â
+	while(1)//retê°€ EOFê°’ì„ ê°€ì§ˆ ë•Œê¹Œì§€ ë°ì´í„° ì½ê¸°
 	{
-		ret=fscanf(src, "%d,%d,%d\n", &A,&B,&C);//µ¥ÀÌÅÍ ÆÄÀÏÀº 1,2,3 À¸·Î ÄÄ¸¶·Î ±¸ºĞµÊ
+		ret=fscanf(src, "%d,%d,%d\n", &A,&B,&C);//ë°ì´í„° íŒŒì¼ì€ 1,2,3 ìœ¼ë¡œ ì»´ë§ˆë¡œ êµ¬ë¶„ë¨
 		if(ret==EOF)
 			break;
 		a[n]=A;
@@ -43,11 +43,11 @@ int main(void)
 	}
 	
 
-	printf("ÀĞ¾îµéÀÎ µ¥ÀÌÅÍ´Â %d¿­ ÀÔ´Ï´Ù.\n", n);//ÀĞÀº µ¥ÀÌÅÍ ¼ö Ç¥½Ã
+	printf("ì½ì–´ë“¤ì¸ ë°ì´í„°ëŠ” %dì—´ ì…ë‹ˆë‹¤.\n", n);//ì½ì€ ë°ì´í„° ìˆ˜ í‘œì‹œ
 	for(i=0;i<n;i++){
-	printf("%d,%d,%d\n", a[i],b[i],c[i]);//ÀĞÀº µ¥ÀÌÅÍ È­¸é¿¡ Ãâ·Â
+	printf("%d,%d,%d\n", a[i],b[i],c[i]);//ì½ì€ ë°ì´í„° í™”ë©´ì— ì¶œë ¥
 	}
-	printf("ÀĞ¾îµéÀÎ µ¥ÀÌÅÍ´Â %d¿­ ÀÔ´Ï´Ù.\n", n);//ÀĞÀº µ¥ÀÌÅÍ ¼ö Ç¥½Ã
+	printf("ì½ì–´ë“¤ì¸ ë°ì´í„°ëŠ” %dì—´ ì…ë‹ˆë‹¤.\n", n);//ì½ì€ ë°ì´í„° ìˆ˜ í‘œì‹œ
 	for(i=0;i<n;i++){
 		abar=abar+(double)a[i];
 		bbar=bbar+(double)b[i];
@@ -58,38 +58,38 @@ int main(void)
 	abar=abar/(double)n;
 	bbar=bbar/(double)n;
 	cbar=cbar/(double)n;
-	printf("Ã¹¹øÂ° Ã³¸®ÀÇ Æò±Õ\n%f\n", abar);
-	printf("µÎ¹øÂ° Ã³¸®ÀÇ Æò±Õ\n%f\n", bbar);
-	printf("¼¼¹øÂ° Ã³¸®ÀÇ Æò±Õ\n%f\n", cbar);
-	printf("ÀüÃ¼ÀÇ Æò±Õ\n%f\n", total);
+	printf("ì²«ë²ˆì§¸ ì²˜ë¦¬ì˜ í‰ê· \n%f\n", abar);
+	printf("ë‘ë²ˆì§¸ ì²˜ë¦¬ì˜ í‰ê· \n%f\n", bbar);
+	printf("ì„¸ë²ˆì§¸ ì²˜ë¦¬ì˜ í‰ê· \n%f\n", cbar);
+	printf("ì „ì²´ì˜ í‰ê· \n%f\n", total);
 	for(i=0;i<n;i++){
 		ssta=ssta+(a[i]-total)*(a[i]-total);
 		sstb=sstb+(b[i]-total)*(b[i]-total);
 		sstc=sstc+(c[i]-total)*(c[i]-total);
 	}
 	sst=ssta+sstb+sstc;
-	printf("ÃÑÁ¦°öÇÕÀº %f\n", sst);
+	printf("ì´ì œê³±í•©ì€ %f\n", sst);
 	tss=(abar-total)*(abar-total)+(bbar-total)*(bbar-total)+(cbar-total)*(cbar-total);
 	tss=tss*n;
-	printf("Ã³¸®Á¦°öÇÕÀº %f\n", tss);
+	printf("ì²˜ë¦¬ì œê³±í•©ì€ %f\n", tss);
 	for(i=0;i<n;i++){
 		ssea=ssea+(a[i]-abar)*(a[i]-abar);
 		sseb=sseb+(b[i]-bbar)*(b[i]-bbar);
 		ssec=ssec+(c[i]-cbar)*(c[i]-cbar);
 	}
 	sse=ssea+sseb+ssec;
-	printf("ÀÜÂ÷Á¦°öÇÕÀº %f\n", sse);
+	printf("ì”ì°¨ì œê³±í•©ì€ %f\n", sse);
 	df=3*(n-1);
 	f=(tss/2)/(sse/df);
-	printf("Fºñ´Â %f\n", f);
-	fprintf(des,"Ã¹¹øÂ° Ã³¸®ÀÇ Æò±Õ\n%f\n", abar);
-	fprintf(des,"µÎ¹øÂ° Ã³¸®ÀÇ Æò±Õ\n%f\n", bbar);
-	fprintf(des,"¼¼¹øÂ° Ã³¸®ÀÇ Æò±Õ\n%f\n", cbar);
-	fprintf(des,"ÀüÃ¼ÀÇ Æò±Õ\n%f\n", total);
-	fprintf(des,"ÃÑÁ¦°öÇÕÀº %f\n", sst);
-	fprintf(des,"Ã³¸®Á¦°öÇÕÀº %f\n", tss);
-	fprintf(des,"ÀÜÂ÷Á¦°öÇÕÀº %f\n", sse);
-	fprintf(des,"Fºñ´Â %f\n", f);
+	printf("Fë¹„ëŠ” %f\n", f);
+	fprintf(des,"ì²«ë²ˆì§¸ ì²˜ë¦¬ì˜ í‰ê· \n%f\n", abar);
+	fprintf(des,"ë‘ë²ˆì§¸ ì²˜ë¦¬ì˜ í‰ê· \n%f\n", bbar);
+	fprintf(des,"ì„¸ë²ˆì§¸ ì²˜ë¦¬ì˜ í‰ê· \n%f\n", cbar);
+	fprintf(des,"ì „ì²´ì˜ í‰ê· \n%f\n", total);
+	fprintf(des,"ì´ì œê³±í•©ì€ %f\n", sst);
+	fprintf(des,"ì²˜ë¦¬ì œê³±í•©ì€ %f\n", tss);
+	fprintf(des,"ì”ì°¨ì œê³±í•©ì€ %f\n", sse);
+	fprintf(des,"Fë¹„ëŠ” %f\n", f);
 	fclose(src);
 	fclose(des);
 	return 0;

@@ -1,15 +1,15 @@
 #include "stdio.h"
 #include "string.h"
- // ¹®ÀÚÀÇ ¾Æ½ºÅ° ÄÚµå°ªÀ¸·Î ºñ±³ÇÕ´Ï´Ù.
+ // ë¬¸ìžì˜ ì•„ìŠ¤í‚¤ ì½”ë“œê°’ìœ¼ë¡œ ë¹„êµí•©ë‹ˆë‹¤.
  
 #define MAX 500
      int in[MAX];
 	 //double sample[MAX][MAX];
 	 int a;
-	 int i=0; // ¼±¾ð ¹× ÃÊ±âÈ­
+	 int i=0; // ì„ ì–¸ ë° ì´ˆê¸°í™”
 	 int t=0;
 	 int ret;
-	 char input[MAX]; // ¹®ÀÚ¿­ ÀúÀå ¹è¿­ ¼±¾ð
+	 char input[MAX]; // ë¬¸ìžì—´ ì €ìž¥ ë°°ì—´ ì„ ì–¸
 	 FILE * fp;
  void main(void)
  {
@@ -18,20 +18,20 @@
 	puts("File open failed");
 	return -1;
 	}
-fgets(input, sizeof(input), fp); // ¹®ÀÚ¿­ ÀÔ·ÂÇÔ¼ö gets »ç¿ëÇÏ¿© º¯¼ö¿¡ ÀúÀå
-while(input[i] != NULL) // ±ÛÀÚ ¼ö ¸¸Å­
+fgets(input, sizeof(input), fp); // ë¬¸ìžì—´ ìž…ë ¥í•¨ìˆ˜ gets ì‚¬ìš©í•˜ì—¬ ë³€ìˆ˜ì— ì €ìž¥
+while(input[i] != NULL) // ê¸€ìž ìˆ˜ ë§Œí¼
 {
-switch(input[i]) // ±ÛÀÚÀÇ °ª ºñ±³
+switch(input[i]) // ê¸€ìžì˜ ê°’ ë¹„êµ
 {
-case ',' : t++; // ÄÄ¸¶¸é 1Áõ°¡
+case ',' : t++; // ì»´ë§ˆë©´ 1ì¦ê°€
 break; 
- default : break; // µðÆÞÆ®¸é ¾Æ¹«°Íµµ ÇÏÁö¸¶
+ default : break; // ë””íŽ„íŠ¸ë©´ ì•„ë¬´ê²ƒë„ í•˜ì§€ë§ˆ
 }
-i++; // iÁõ°¡
+i++; // iì¦ê°€
 }
 i=0;
 printf ("head => %s\n", input);
-printf ("Ã³¸®ÀÇ ¼ö => %d°³\n",t+1);
+printf ("ì²˜ë¦¬ì˜ ìˆ˜ => %dê°œ\n",t+1);
 fseek(fp, 0, SEEK_SET);
 for(i=0;i<t+1;i++)
 {
